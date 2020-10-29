@@ -10,16 +10,41 @@ alla volta, sempre compreso tra 1 e 100.
 5) La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
 6) Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito. */
 
-var welcome = alert("Welcome to Minesweeper!")
-
 // the computer will generate 16 random numbers ranging from 1 to 100
   // they can't be duplicated
+
+  var randomNums = [];
+  while(randomNums.length < 16) {
+      var random = Math.floor(Math.random() * 100) + 1;
+
+      if(randomNums.indexOf(random) === -1) randomNums.push(random);
+  }
+  console.log(randomNums);
 
 // ask the user 100 - 16 times to choose a number ranging from 1 to 100
   // the user can't choose the same number more than one time
 
+var userChoices = [];
+
+for (var i = 0; i < 5; i++) {
+  var userInput = parseInt(prompt("Choose a number from 1 to 100"));
+  userChoices.push(userInput);
+}
+
+console.log(userChoices);
+
+
+
+// ciclo + array per salvare i valori che mette
+
 // if the user's chosen number is equal to any of the 16 random numbers of the computer, game over otherwise keeping asking for numbers
 
-// game over when the users chooses any number from the 16 that the computer generated or he asked the maximum of numbers possible
+// condizioni per confrontare il primo array con il secondo
 
-// when the game is over show how many points the users got, how many accepted numbers he managed to write before finding a forbidden one 
+// output -> game over se scelto numero 1 array uguale del 2 array
+// output 2 -> game over finiti numeri che può scegliere
+
+
+// when the game is over show how many points the user got, how many accepted numbers he managed to write before game over
+
+// final points: length dell'array 2
