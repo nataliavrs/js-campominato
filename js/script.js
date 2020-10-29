@@ -14,7 +14,7 @@ alla volta, sempre compreso tra 1 e 100.
   // they can't be duplicated
 
   var randomNums = [];
-  while(randomNums.length < 5) {
+  while(randomNums.length < 16) {
       var random = Math.floor(Math.random() * 100) + 1;
 
       if(randomNums.indexOf(random) === -1) randomNums.push(random);
@@ -22,25 +22,26 @@ alla volta, sempre compreso tra 1 e 100.
   console.log(randomNums);
 
 // ask the user 100 - 16 times to choose a number ranging from 1 to 100
-  // the user can't choose the same number more than one time
+  // the user can't choose the same number more than once
 
-var userChoices = [];
+  var userChoices = [];
+  for (var i = 0; i < 84; i++) {
 
-for (var i = 0; i < 5; i++) {
+    var userInput = parseInt(prompt("Choose a number from 1 to 100"));
 
-  var userInput = parseInt(prompt("Choose a number from 1 to 100"));
+    if(userChoices.indexOf(userInput) === -1) {
+      userChoices.push(userInput);
+    } else {
+      alert("You can't repeat a number.")
+    }
 
-  if(userChoices.indexOf(userInput) === -1) userChoices.push(userInput);
-  else {
+    var includes = randomNums.includes(userChoices[i]);
 
-    alert("You can't repeat a number.")
+    if (includes == true) {
+      alert("Game over")
+      i = 10000;
+    }
+
   }
 
-}
-console.log(userChoices);
-
-// if the user's chosen number is equal to any of the 16 random numbers of the computer, game over otherwise keeping asking for numbers
-
-// when the game is over show how many points the user got, how many accepted numbers he managed to write before game over
-
-// final points: length dell'array 2
+  console.log("il tuo punteggio finale è: ", userChoices.length);
