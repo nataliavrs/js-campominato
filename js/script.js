@@ -27,15 +27,15 @@ alla volta, sempre compreso tra 1 e 100.
 var userChoices = [];
 
 for (var i = 0; i < 5; i++) {
+
   var userInput = parseInt(prompt("Choose a number from 1 to 100"));
-  userChoices.push(userInput);
+
+  if(userChoices.indexOf(userInput) === -1) userChoices.push(userInput); else {
+    alert("You can't repeat a number.")
+  }
+
 }
-
 console.log(userChoices);
-
-
-
-// ciclo + array per salvare i valori che mette
 
 // if the user's chosen number is equal to any of the 16 random numbers of the computer, game over otherwise keeping asking for numbers
 
