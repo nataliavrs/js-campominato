@@ -11,7 +11,9 @@
   while(randomNums.length < 16) {
       var random = Math.floor(Math.random() * 100) + 1;
 
-      if(randomNums.indexOf(random) === -1) randomNums.push(random);
+      if(randomNums.indexOf(random) === -1) {
+        randomNums.push(random);
+      }
   }
   console.log("Mines are: ", randomNums);
 
@@ -29,7 +31,7 @@
     }
 
     // check if user chose a mine
-    var includes = randomNums.includes(userChoices[i]);
+    var includes = randomNums.includes(userInput);
 
     // if he chose a mine
     if (includes === true) {
@@ -42,7 +44,7 @@
       // if he uses all numbers besides mines
     } else if (userChoices.length > 5) {
 
-      alert("You won. Congratulations!")
+      alert("You've won. Congratulations!")
       console.log("You chose these numbers: ", userChoices);
       console.log("You scored: ", userChoices.length);
 
